@@ -6,11 +6,12 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v1
     - name: Install Nix
       run: curl https://nixos.org/nix/install | sh
     - name: Build site
       run: |
+        . /home/runner/.nix-profile/etc/profile.d/nix.sh
         nix-build

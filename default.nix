@@ -1,8 +1,8 @@
 let
   euphenix = import (fetchTarball {
     url =
-      "https://github.com/manveru/euphenix/archive/7d4392f82adada0624f7d4745c375855b460a801.tar.gz";
-    sha256 = "0zlr3n4p2j046mhxyc0lh878hj7wyz6kyhb01cbb151n8l0jpgq2";
+      "https://github.com/manveru/euphenix/archive/34252d3ec764e91d8578728573fa8350ce5127fe.tar.gz";
+    sha256 = "0x2brxgvfpzshyc44xi0bgji55421b9v67xlj94qy750y9zlikf2";
   }) { };
 in {
   euphenix = euphenix.euphenix;

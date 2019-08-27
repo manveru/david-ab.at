@@ -12,6 +12,9 @@ jobs:
     - name: Install Nix
       run: curl https://nixos.org/nix/install | sh
     - name: Build site
+      with:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
       run: |
         . /home/runner/.nix-profile/etc/profile.d/nix.sh
         $(nix-build -A euphenix)/bin/euphenix deploy netlify

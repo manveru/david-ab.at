@@ -14,4 +14,4 @@ jobs:
     - name: Build site
       run: |
         . /home/runner/.nix-profile/etc/profile.d/nix.sh
-        nix-build
+        $(nix-build -A euphenix)/bin/euphenix deploy netlify

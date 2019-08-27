@@ -192,66 +192,13 @@
     };
 
     /* ---------------------------------------------- /*
-     * Contact form ajax
-    /* ---------------------------------------------- */
-
-    $("#contact-form").submit(function(e) {
-
-      e.preventDefault();
-
-      var c_name = $("#c_name").val();
-      var c_email = $("#c_email").val();
-      var c_message = $("#c_message ").val();
-      var c_tel = $("#c_tel ").val();
-      var responseMessage = $('#contact-form .ajax-response');
-
-      if ((c_name == "" || c_email == "" || c_message == "") || (!isValidEmailAddress(c_email))) {
-        responseMessage.fadeIn(500);
-        responseMessage.html('<i class="fa fa-warning"></i> Check all fields.');
-      } else {
-        $.ajax({
-          type: "POST",
-          url: "http://seitenschmied.at/api/mail/david",
-          data: {
-            email: c_email,
-            name: c_name,
-            msg: c_message,
-            tel: c_tel
-          },
-          beforeSend: function(result) {
-            $('#contact-form button').empty();
-            $('#contact-form button').append('<i class="fa fa-cog fa-spin"></i> Wait...');
-          },
-          error: function() {
-            $('#contact-form button').empty();
-            $('#contact-form button').append('<i class="fa fa-retweet"></i> Senden wiederholen.');
-            responseMessage.html('Problem beim Senden').fadeIn(1000);
-          },
-          success: function(_, success) {
-            if (success === 'success') {
-              $('#contact-form .ajax-hidden').fadeOut(500);
-              responseMessage.html('Vielen Dank für Ihre Anfrage.').fadeIn(500);
-            } else {
-              $('#contact-form button').empty();
-              $('#contact-form button').append('<i class="fa fa-retweet"></i> Senden wiederholen.');
-              responseMessage.html('Problem beim Senden').fadeIn(1000);
-            }
-          }
-        });
-      }
-
-      return false;
-
-    });
-
-    /* ---------------------------------------------- /*
      * Google Map 
     /* ---------------------------------------------- */
 
     map = new GMaps({
       el: '#map',
-      lat: 47.3552297,
-      lng: 11.7046988,
+      lat: 47.355942,
+      lng: 11.7005796,
       zoom: 16,
       scrollwheel: false,
       zoomControl: false,
@@ -269,7 +216,7 @@
       }]
     });
 
-    var image = new google.maps.MarkerImage('assets/images/map-icon.png',
+    var image = new google.maps.MarkerImage('/images/map-icon.png',
       new google.maps.Size(60, 60),
       new google.maps.Point(0, 0),
       new google.maps.Point(26, 30)
